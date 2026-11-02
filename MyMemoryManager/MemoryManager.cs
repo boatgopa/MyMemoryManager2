@@ -54,7 +54,7 @@ namespace MyMemoryManager {
                     break;
                 }
 
-                // 요구 공간보다 여유 공간이 부족한 경우, 다음 블록으로 이동 시도.
+                // 요구 공간보다 여유 공간이 부족한 경우, 다음 빈 공간으로 이동 시도.
                 else {
                     prev = ptr;
                     ptr = memory[ptr + 1];

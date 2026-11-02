@@ -12,8 +12,17 @@ namespace MyMemoryManager {
         private List<(string name, int address, int size)> allocs
             = new List<(string name, int address, int size)>();
 
-        public MemoryMonitor(int memory_size) {
-            this.memory_size = memory_size;
+        public MemoryMonitor() {
+            while (true) {
+                Console.Write("초기 메모리 크기를 입력해주세요: ");
+
+                if (int.TryParse(Console.ReadLine(), out memory_size) && memory_size > 8) {
+                    break;
+                }
+
+                Console.WriteLine("\n잘못된 메모리 크기입니다. 8보다 큰 정수를 입력해주세요.\n");
+            }
+
             memory_manager = new MemoryManager(memory_size);
         }
 
